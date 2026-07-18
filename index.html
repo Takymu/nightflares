@@ -25,11 +25,7 @@
   <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
   <!-- TODO: при желании добавить favicon.ico для старых браузеров -->
 
-  <!-- Шрифты Google Fonts (единственная внешняя зависимость; офлайн — падает на системные) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@500;600;700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
-
+  <!-- Шрифты подключены локально через @font-face в styles.css (без внешнего CDN) -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -39,7 +35,7 @@
     <div class="wrap site-header__inner">
       <a class="logo" href="#top" aria-label="На главную">
         <span class="logo__dot" aria-hidden="true"></span>
-        <span class="logo__text" data-cfg="brand">{{BRAND}}</span>
+        <span class="logo__text" data-cfg="brand">NightFlares</span>
       </a>
       <nav class="nav" aria-label="Основная навигация">
         <a href="#models">Модели</a>
@@ -133,7 +129,7 @@
               <source srcset="img/process-print.webp" type="image/webp">
               <img src="img/process-print.jpg" alt="3D-принтер печатает плафон ночника" width="800" height="600" loading="lazy" decoding="async">
             </picture>
-            <h3 class="pstep__title">Печатаем ~<span data-cfg="printHours">{{N}}</span> часов</h3>
+            <h3 class="pstep__title">Печатаем ~<span data-cfg="printHours">6</span> часов</h3>
           </li>
           <li class="pstep pstep--stub">
             <span class="pstep__num" aria-hidden="true">3</span>
@@ -182,7 +178,7 @@
         <details class="qa">
           <summary>Как доставка?</summary>
           <div class="qa__body">
-            <p>Авито Доставка или <span data-cfg="deliveryMethods">{{СПОСОБЫ}}</span>, по всей России. Упаковываю в жёсткую коробку с вспененным полиэтиленом, чтобы доехало целым. Обычно <span data-cfg="deliveryDays">{{N}}</span> дней в пути.</p>
+            <p>Авито Доставка или <span data-cfg="deliveryMethods">Почта России, СДЭК</span>, по всей России. Упаковываю в жёсткую коробку с вспененным полиэтиленом, чтобы доехало целым. Обычно <span data-cfg="deliveryDays">14</span> дней в пути.</p>
           </div>
         </details>
 
@@ -260,7 +256,7 @@
     <div class="wrap site-footer__inner">
       <div class="site-footer__brand">
         <span class="logo__dot" aria-hidden="true"></span>
-        <span><strong data-cfg="brand">{{BRAND}}</strong> · сделано в Новосибирске</span>
+        <span><strong data-cfg="brand">NightFlares</strong> · сделано в Новосибирске</span>
       </div>
       <p class="site-footer__legal">
         Продавец: самозанятый <span data-cfg="sellerName">{{ФИО}}</span>,
@@ -272,7 +268,7 @@
         <a href="privacy.html">Политика обработки данных</a>
         <a href="oferta.html">Публичная оферта</a>
       </nav>
-      <p class="site-footer__copy">© <span id="year">2026</span> <span data-cfg="brand">{{BRAND}}</span></p>
+      <p class="site-footer__copy">© <span id="year">2026</span> <span data-cfg="brand">NightFlares</span></p>
     </div>
   </footer>
 
