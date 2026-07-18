@@ -41,6 +41,8 @@
   --amber-hi:  #ffd9a0;   /* светлый тёплый блик */
   --glow:      255, 184, 77;  /* rgb() для мягкого свечения */
 
+  color-scheme: dark;   /* сайт спроектирован тёмным — не давать браузеру «форс-дарк» перекрашивать */
+
   --maxw: 1120px;
   --radius: 16px;
   --font-display: "Cormorant", Georgia, "Times New Roman", serif;
