@@ -11,6 +11,9 @@ demo/*.mp4
 demo/*.mov
 !demo/cut_looped.mp4
 
+# Личные настройки Claude Code (разрешения и т.п.) — не в публичный репо
+.claude/settings.local.json
+
 # Системный мусор
 Thumbs.db
 .DS_Store

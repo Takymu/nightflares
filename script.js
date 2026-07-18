@@ -243,12 +243,28 @@ const CONFIG = {
     });
   }
 
-  // --- Демо-видео: не автозапускать при prefers-reduced-motion ---
+  // --- Демо-видео: гарантированно запустить (или показать controls, если автоплей заблокирован) ---
   const demoVideo = $(".modes-video__el");
-  if (demoVideo && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    demoVideo.removeAttribute("autoplay");
-    demoVideo.setAttribute("controls", "");
-    if (demoVideo.pause) demoVideo.pause();
+  if (demoVideo) {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      // Уважаем «уменьшить движение»: не автозапускаем, даём управление руками
+      demoVideo.removeAttribute("autoplay");
+      demoVideo.controls = true;
+      if (demoVideo.pause) demoVideo.pause();
+    } else {
+      const tryPlay = () => {
+        const p = demoVideo.play();
+        if (p && p.catch) p.catch(() => { demoVideo.controls = true; }); // автоплей заблокирован — покажем кнопку
+      };
+      demoVideo.addEventListener("canplay", tryPlay, { once: true });
+      if ("IntersectionObserver" in window) {
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach((e) => { if (e.isIntersecting) tryPlay(); });
+        }, { threshold: 0.25 });
+        io.observe(demoVideo);
+      }
+      tryPlay();
+    }
   }
 
   // --- Мини-форма заявки: Formspree (если задан ID) или mailto-фолбэк ---
