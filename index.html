@@ -79,10 +79,25 @@
          задаются в CONFIG.brightness; сам переключатель рендерит script.js. -->
     <section id="modes" class="modes" aria-labelledby="modes-title">
       <div class="wrap">
-        <h2 id="modes-title" class="section-title">Один ночник — четыре настроения</h2>
-        <p class="section-lead">Сенсорное касание переключает яркость: от совсем выключенного до полного тёплого света. Потрогайте прямо здесь.</p>
-        <!-- Сцена + кнопки рендерятся из CONFIG.brightness в script.js -->
-        <div id="switcher" class="switcher"></div>
+        <h2 id="modes-title" class="section-title">Один ночник — три настроения</h2>
+        <p class="section-lead">Сенсорное касание переключает яркость — от совсем выключенного до полного тёплого света.</p>
+
+        <div class="modes-layout">
+          <!-- Живое видео: как касание переключает свет (сжато ~0.5 МБ) -->
+          <figure class="modes-video">
+            <video class="modes-video__el" autoplay muted loop playsinline
+                   preload="metadata" poster="img/video-poster.jpg" width="1080" height="1440">
+              <source src="demo/cut_looped.mp4" type="video/mp4">
+            </video>
+            <figcaption class="modes-video__cap">Одно касание — и свет меняется.</figcaption>
+          </figure>
+
+          <!-- Интерактив: сравнить режимы самому. Рендерится из CONFIG.brightness. -->
+          <div class="modes-interactive">
+            <p class="switcher__lead">А теперь переключите сами:</p>
+            <div id="switcher" class="switcher"></div>
+          </div>
+        </div>
       </div>
     </section>
 

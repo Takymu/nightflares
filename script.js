@@ -243,6 +243,14 @@ const CONFIG = {
     });
   }
 
+  // --- Демо-видео: не автозапускать при prefers-reduced-motion ---
+  const demoVideo = $(".modes-video__el");
+  if (demoVideo && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    demoVideo.removeAttribute("autoplay");
+    demoVideo.setAttribute("controls", "");
+    if (demoVideo.pause) demoVideo.pause();
+  }
+
   // --- Мини-форма заявки: Formspree (если задан ID) или mailto-фолбэк ---
   const form = $("#order-form");
   if (form) {

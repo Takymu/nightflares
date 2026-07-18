@@ -6,6 +6,11 @@ photos/
 secrets.local.json
 *.local.json
 
+# Демо-видео: в репозиторий только используемое на сайте
+demo/*.mp4
+demo/*.mov
+!demo/cut_looped.mp4
+
 # Системный мусор
 Thumbs.db
 .DS_Store
