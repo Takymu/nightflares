@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- SEO -->
+  <!-- TODO: пока прячем от поисковиков (превью-режим). Убрать эту строку, когда решишь публиковаться. -->
+  <meta name="robots" content="noindex, nofollow">
+  <title>Ночники ручной работы NightFlares — 3D-печатные светильники</title>
+  <meta name="description" content="Декоративные ночники ручной работы: свой дизайн, 3D-печать, сборка и пайка в мастерской в Новосибирске. Тёплый свет, сенсорное управление, USB-C. Блок питания и кабель в комплекте.">
+
+  <!-- Open Graph — красивая карточка при шеринге в Telegram (главный канал) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Ночники ручной работы NightFlares">
+  <meta property="og:description" content="Свет, который напечатали для вас. 3D-печатные ночники ручной работы из Новосибирска.">
+  <!-- TODO: заменить на абсолютный URL после публикации, напр. https://site.ru/img/og-cover.jpg -->
+  <meta property="og:image" content="img/og-cover.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <!-- TODO: при желании добавить favicon.ico для старых браузеров -->
+
+  <!-- Шрифты Google Fonts (единственная внешняя зависимость; офлайн — падает на системные) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@500;600;700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#models">К моделям</a>
+
+  <header class="site-header">
+    <div class="wrap site-header__inner">
+      <a class="logo" href="#top" aria-label="На главную">
+        <span class="logo__dot" aria-hidden="true"></span>
+        <span class="logo__text" data-cfg="brand">{{BRAND}}</span>
+      </a>
+      <nav class="nav" aria-label="Основная навигация">
+        <a href="#models">Модели</a>
+        <a href="#process">Как делаем</a>
+        <a href="#faq">Вопросы</a>
+        <a class="nav__cta" href="#order">Заказать</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ================= HERO ================= -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap hero__inner">
+        <div class="hero__text">
+          <h1 id="hero-title" class="hero__title">Свет, который напечатали для вас</h1>
+          <p class="hero__sub">Ночники ручной работы: свой дизайн, 3D-печать, сборка и пайка — всё в одной мастерской в Новосибирске.</p>
+          <a class="btn btn--glow btn--lg" href="#models">Выбрать ночник</a>
+          <p class="hero__fine">Блок питания и кабель в комплекте — работает из коробки.</p>
+        </div>
+        <div class="hero__media">
+          <!-- РЕАЛЬНОЕ ФОТО: включённый «Вейв» в темноте. Свечение делает CSS, не картинка. -->
+          <div class="hero__glow" aria-hidden="true"></div>
+          <picture>
+            <source srcset="img/hero-wave-lit.webp" type="image/webp">
+            <img class="hero__img" src="img/hero-wave-lit.jpg"
+                 alt="Включённый ночник «Вейв» светится тёплым светом в тёмной комнате"
+                 width="1000" height="1250" fetchpriority="high" decoding="async">
+          </picture>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ПЕРЕКЛЮЧАТЕЛЬ РЕЖИМОВ ЯРКОСТИ =================
+         Реальные фото одной сцены со штатива (img/mode-*). Сцена, кадры и подписи
+         задаются в CONFIG.brightness; сам переключатель рендерит script.js. -->
+    <section id="modes" class="modes" aria-labelledby="modes-title">
+      <div class="wrap">
+        <h2 id="modes-title" class="section-title">Один ночник — четыре настроения</h2>
+        <p class="section-lead">Сенсорное касание переключает яркость: от совсем выключенного до полного тёплого света. Потрогайте прямо здесь.</p>
+        <!-- Сцена + кнопки рендерятся из CONFIG.brightness в script.js -->
+        <div id="switcher" class="switcher"></div>
+      </div>
+    </section>
+
+    <!-- ================= МОДЕЛИ ================= -->
+    <section id="models" class="models" aria-labelledby="models-title">
+      <div class="wrap">
+        <h2 id="models-title" class="section-title">Модели</h2>
+        <p class="section-lead">Каждый ночник печатается и собирается под заказ. Свет тёплый, включение — сенсорное, питание USB-C.</p>
+        <!-- Карточки рендерятся из CONFIG.models в script.js -->
+        <div id="models-grid" class="models-grid"></div>
+      </div>
+    </section>
+
+    <!-- ================= КАК ЭТО ДЕЛАЕТСЯ ================= -->
+    <section id="process" class="process" aria-labelledby="process-title">
+      <div class="wrap">
+        <h2 id="process-title" class="section-title">Как это делается</h2>
+        <p class="section-lead">Ни одного этапа на стороне: придумываю, печатаю, паяю и упаковываю сам. Поэтому знаю про каждый ночник всё.</p>
+        <ol class="process-steps">
+          <li class="pstep pstep--stub">
+            <span class="pstep__num" aria-hidden="true">1</span>
+            <!-- РЕАЛЬНОЕ: скриншот из Blender -->
+            <picture>
+              <source srcset="img/process-concept.webp" type="image/webp">
+              <img src="img/process-concept.jpg" alt="Модель ночника в 3D-редакторе Blender" width="800" height="600" loading="lazy" decoding="async">
+            </picture>
+            <h3 class="pstep__title">Придумываем форму</h3>
+          </li>
+          <li class="pstep pstep--stub">
+            <span class="pstep__num" aria-hidden="true">2</span>
+            <!-- РЕАЛЬНОЕ: кадр печати с принтера -->
+            <picture>
+              <source srcset="img/process-print.webp" type="image/webp">
+              <img src="img/process-print.jpg" alt="3D-принтер печатает плафон ночника" width="800" height="600" loading="lazy" decoding="async">
+            </picture>
+            <h3 class="pstep__title">Печатаем ~<span data-cfg="printHours">{{N}}</span> часов</h3>
+          </li>
+          <li class="pstep pstep--stub">
+            <span class="pstep__num" aria-hidden="true">3</span>
+            <!-- РЕАЛЬНОЕ: стол с паяльником -->
+            <picture>
+              <source srcset="img/process-solder.webp" type="image/webp">
+              <img src="img/process-solder.jpg" alt="Пайка и сборка электроники ночника вручную" width="800" height="600" loading="lazy" decoding="async">
+            </picture>
+            <h3 class="pstep__title">Паяем и собираем</h3>
+          </li>
+          <li class="pstep pstep--stub">
+            <span class="pstep__num" aria-hidden="true">4</span>
+            <!-- РЕАЛЬНОЕ: коробка с изолоном -->
+            <picture>
+              <source srcset="img/process-pack.webp" type="image/webp">
+              <img src="img/process-pack.jpg" alt="Готовый ночник упакован в коробку с вспененным полиэтиленом" width="800" height="600" loading="lazy" decoding="async">
+            </picture>
+            <h3 class="pstep__title">Проверяем и упаковываем</h3>
+          </li>
+        </ol>
+        <p class="process-link">
+          <a data-link="tgChannelProcess" href="#" target="_blank" rel="noopener">Больше закулисья — в телеграм-канале →</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ================= FAQ ================= -->
+    <section id="faq" class="faq" aria-labelledby="faq-title">
+      <div class="wrap wrap--narrow">
+        <h2 id="faq-title" class="section-title">Вопросы</h2>
+
+        <details class="qa">
+          <summary>Это безопасно для детской?</summary>
+          <div class="qa__body">
+            <p>Да. Питание — 5 вольт, ровно как у телефона; корпус не нагревается. Пластик PLA — тот самый, из которого делают пищевую упаковку. Блок питания в комплекте сертифицирован.</p>
+          </div>
+        </details>
+
+        <details class="qa">
+          <summary>Что в комплекте?</summary>
+          <div class="qa__body">
+            <p>Ночник, кабель USB-C, блок питания и короткая инструкция. Ничего докупать не нужно — достали из коробки, воткнули, светит.</p>
+          </div>
+        </details>
+
+        <details class="qa">
+          <summary>Как доставка?</summary>
+          <div class="qa__body">
+            <p>Авито Доставка или <span data-cfg="deliveryMethods">{{СПОСОБЫ}}</span>, по всей России. Упаковываю в жёсткую коробку с вспененным полиэтиленом, чтобы доехало целым. Обычно <span data-cfg="deliveryDays">{{N}}</span> дней в пути.</p>
+          </div>
+        </details>
+
+        <details class="qa">
+          <summary>А если не понравится или приедет битым?</summary>
+          <div class="qa__body">
+            <p>Договоримся — я на связи, а не «служба поддержки». Если в дороге что-то повредилось, пришлите фото: заменю или верну деньги. Если просто не легло на душу — тоже решим по-человечески, для этого не нужно ничего доказывать.</p>
+          </div>
+        </details>
+
+        <details class="qa">
+          <summary>Можно другой цвет или свою форму?</summary>
+          <div class="qa__body">
+            <p>Да, это обсуждаемо. Цвет свечения и оттенок пластика можно подобрать, а иногда получается напечатать и совсем свою идею. Напишите в <a data-link="tgChannelProcess" href="#" target="_blank" rel="noopener">Telegram</a> — прикинем вместе, что выйдет.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- ================= ОТЗЫВЫ (скрыто до появления настоящих) ================= -->
+    <!-- Заглушек с выдуманными именами здесь нет намеренно.
+         Когда появятся реальные отзывы — уберите атрибут hidden и наполните блок. -->
+    <section id="reviews" class="reviews" aria-labelledby="reviews-title" hidden>
+      <div class="wrap">
+        <h2 id="reviews-title" class="section-title">Отзывы</h2>
+        <!-- TODO: сюда реальные отзывы покупателей, когда появятся -->
+      </div>
+    </section>
+
+    <!-- ================= ЗАКАЗ ================= -->
+    <section id="order" class="order" aria-labelledby="order-title">
+      <div class="wrap wrap--narrow">
+        <h2 id="order-title" class="section-title">Заказать</h2>
+        <div class="order-grid">
+
+          <div class="order-col order-col--tg">
+            <h3 class="order-col__title">Быстро — в Telegram</h3>
+            <p class="order-col__hint">Напишу лично, отвечу на вопросы, соберу под вас.</p>
+            <a id="tg-order" class="btn btn--glow btn--lg" href="#" target="_blank" rel="noopener">Написать в Telegram</a>
+          </div>
+
+          <div class="order-col order-col--form">
+            <h3 class="order-col__title">Или оставьте заявку</h3>
+            <form id="order-form" novalidate>
+              <label class="field">
+                <span class="field__label">Как вас зовут</span>
+                <input id="order-name" name="name" type="text" autocomplete="name" required>
+              </label>
+              <label class="field">
+                <span class="field__label">Телефон или ник в Telegram</span>
+                <input id="order-contact" name="contact" type="text" required placeholder="@username или +7…">
+              </label>
+              <label class="field">
+                <span class="field__label">Модель</span>
+                <!-- Опции подставляются из CONFIG.models (только «в наличии») -->
+                <select id="order-model" name="model"></select>
+              </label>
+              <button class="btn btn--glow" type="submit">Оставить заявку</button>
+              <p id="form-note" class="form-note" role="status" aria-live="polite"></p>
+              <p class="form-consent">
+                Нажимая кнопку, вы соглашаетесь с
+                <a href="privacy.html" target="_blank" rel="noopener">политикой обработки персональных данных</a>.
+              </p>
+            </form>
+          </div>
+        </div>
+        <p class="order-outro">Отвечаю обычно в течение пары часов. Ночью — сплю рядом с ночником.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= ФУТЕР ================= -->
+  <footer class="site-footer">
+    <div class="wrap site-footer__inner">
+      <div class="site-footer__brand">
+        <span class="logo__dot" aria-hidden="true"></span>
+        <span><strong data-cfg="brand">{{BRAND}}</strong> · сделано в Новосибирске</span>
+      </div>
+      <p class="site-footer__legal">
+        Продавец: самозанятый <span data-cfg="sellerName">{{ФИО}}</span>,
+        ИНН <span data-cfg="inn">{{ИНН}}</span>
+      </p>
+      <nav class="site-footer__links" aria-label="Ссылки">
+        <a data-link="tgChannel" href="#" target="_blank" rel="noopener">Telegram-канал</a>
+        <a data-link="avito" href="#" target="_blank" rel="noopener">Авито</a>
+        <a href="privacy.html">Политика обработки данных</a>
+        <a href="oferta.html">Публичная оферта</a>
+      </nav>
+      <p class="site-footer__copy">© <span id="year">2026</span> <span data-cfg="brand">{{BRAND}}</span></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
